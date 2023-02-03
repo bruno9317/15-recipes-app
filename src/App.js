@@ -1,5 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import './App.css';
+import './index.css';
+import './celular.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Route, Switch, useHistory } from 'react-router-dom';
 import Login from './pages/Login';

@@ -18,7 +18,7 @@ function Meals() {
   }, [dataResults]);
 
   return (
-    <div>
+    <div className="meals-div-pai">
       <Header />
       {recipes !== null
         ? recipes.meals.map((receitas, index) => (
