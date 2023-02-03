@@ -106,11 +106,11 @@ it('Verifica se possui um email renderizado na tela', async () => {
 //     expect(screen.getByText('Corba')).toBeInTheDocument();
 //     expect(screen.getByText('Start Recipe')).toBeInTheDocument();
 //   });
-  // userEvent.click(screen.getByText('Start Recipe'));
+// userEvent.click(screen.getByText('Start Recipe'));
 
-  // await waitFor(() => {
-  //   expect(screen.getByTestId('0-ingredient-step')).toBeInTheDocument();
-  // });
+// await waitFor(() => {
+//   expect(screen.getByTestId('0-ingredient-step')).toBeInTheDocument();
+// });
 //   history.push('/meals/52977');
 //   await waitFor(() => {
 //     expect(screen.getByText('Continue Recipe')).toBeInTheDocument();
