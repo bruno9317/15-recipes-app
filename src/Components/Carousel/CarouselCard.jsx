@@ -8,7 +8,7 @@ import './Carousel.css';
 function CarouselCard({ info }) {
   const [infoMeal, setInfoMeal] = useState(null);
   const [infoDrink, setInfoDrink] = useState(null);
-  const [state, setState] = useState('1');
+  // const [state, setState] = useState('1');
   const number6 = 6;
   useEffect(() => {
     const makeFetchMealDetail = async () => {
@@ -36,88 +36,94 @@ function CarouselCard({ info }) {
   }, []);
 
   return (
-    <div>
+    <div className="div-pai">
       {info.split('/')[1] === 'meals'
         ? (
-          <div>
+          <div id="carouselExample" className="carousel slide div-pai">
             {infoDrink !== null
             && (
-              <div>
-                <div className={ state !== '1' ? 'esconde' : undefined }>
-                  <RecommendationDrinkCard receitas={ infoDrink[0] } index="0" />
-                  <RecommendationDrinkCard receitas={ infoDrink[1] } index="1" />
-                  <button
-                    type="button"
-                    onClick={ () => setState('2') }
-                    data-testid="next-btn1"
-                  >
-                    {'>'}
-                  </button>
+              <div className="carousel-inner">
+                <div className="carousel-item active">
+                  <div className="card-group2">
+                    <RecommendationDrinkCard receitas={ infoDrink[0] } index="0" />
+                    <RecommendationDrinkCard receitas={ infoDrink[1] } index="1" />
+                  </div>
                 </div>
-                <div className={ state !== '2' ? 'esconde' : undefined }>
-                  <RecommendationDrinkCard receitas={ infoDrink[2] } index="2" />
-                  <RecommendationDrinkCard receitas={ infoDrink[3] } index="3" />
-                  <button
-                    type="button"
-                    onClick={ () => setState('3') }
-                    data-testid="next-btn2"
-                  >
-                    {'>'}
-                  </button>
+                <div className="carousel-item">
+                  <div className="card-group2">
+                    <RecommendationDrinkCard receitas={ infoDrink[2] } index="2" />
+                    <RecommendationDrinkCard receitas={ infoDrink[3] } index="3" />
+                  </div>
                 </div>
-                <div className={ state !== '3' ? 'esconde' : undefined }>
-                  <RecommendationDrinkCard receitas={ infoDrink[4] } index="4" />
-                  <RecommendationDrinkCard receitas={ infoDrink[5] } index="5" />
-                  <button
-                    type="button"
-                    onClick={ () => setState('1') }
-                    data-testid="next-btn3"
-                  >
-                    {'>'}
-                  </button>
+                <div className="carousel-item">
+                  <div className="card-group2">
+                    <RecommendationDrinkCard receitas={ infoDrink[4] } index="4" />
+                    <RecommendationDrinkCard receitas={ infoDrink[5] } index="5" />
+                  </div>
                 </div>
               </div>)}
+            <button
+              className="carousel-control-prev"
+              type="button"
+              data-bs-target="#carouselExample"
+              data-bs-slide="prev"
+            >
+              <span className="carousel-control-prev-icon" aria-hidden="true" />
+              <span className="visually-hidden">Previous</span>
+            </button>
+            <button
+              className="carousel-control-next"
+              type="button"
+              data-bs-target="#carouselExample"
+              data-bs-slide="next"
+            >
+              <span className="carousel-control-next-icon" aria-hidden="true" />
+              <span className="visually-hidden">Next</span>
+            </button>
           </div>
         )
         : (
-          <div>
+          <div id="carouselExample" className="carousel slide div-pai">
             {infoMeal !== null
             && (
-              <div>
-                <div className={ state !== '1' ? 'esconde' : undefined }>
-                  <RecommendationMealCard receitas={ infoMeal[0] } index="0" />
-                  <RecommendationMealCard receitas={ infoMeal[1] } index="1" />
-                  <button
-                    type="button"
-                    onClick={ () => setState('2') }
-                    data-testid="next-btn1"
-                  >
-                    {'>'}
-                  </button>
+              <div className="carousel-inner">
+                <div className="carousel-item active">
+                  <div className="card-group2">
+                    <RecommendationMealCard receitas={ infoMeal[0] } index="0" />
+                    <RecommendationMealCard receitas={ infoMeal[1] } index="1" />
+                  </div>
                 </div>
-                <div className={ state !== '2' ? 'esconde' : undefined }>
-                  <RecommendationMealCard receitas={ infoMeal[2] } index="2" />
-                  <RecommendationMealCard receitas={ infoMeal[3] } index="3" />
-                  <button
-                    type="button"
-                    onClick={ () => setState('3') }
-                    data-testid="next-btn2"
-                  >
-                    {'>'}
-                  </button>
+                <div className="carousel-item">
+                  <div className="card-group2">
+                    <RecommendationMealCard receitas={ infoMeal[2] } index="2" />
+                    <RecommendationMealCard receitas={ infoMeal[3] } index="3" />
+                  </div>
                 </div>
-                <div className={ state !== '3' && 'esconde' }>
-                  <RecommendationMealCard receitas={ infoMeal[4] } index="4" />
-                  <RecommendationMealCard receitas={ infoMeal[5] } index="5" />
-                  <button
-                    type="button"
-                    onClick={ () => setState('1') }
-                    data-testid="next-btn3"
-                  >
-                    {'>'}
-                  </button>
+                <div className="carousel-item">
+                  <div className="card-group2">
+                    <RecommendationMealCard receitas={ infoMeal[4] } index="4" />
+                    <RecommendationMealCard receitas={ infoMeal[5] } index="5" />
+                  </div>
                 </div>
               </div>)}
+            <button
+              className="carousel-control-prev"
+              type="button"
+              data-bs-target="#carouselExample"
+              data-bs-slide="prev"
+            >
+              <span className="carousel-control-prev-icon" aria-hidden="true" />
+              <span className="visually-hidden">Previous</span>
+            </button>
+            <button
+              className="carousel-control-next"
+              type="button"
+              data-bs-target="#carouselExample"
+              data-bs-slide="next"
+            >
+              <span className="carousel-control-next-icon" aria-hidden="true" />
+              <span className="visually-hidden">Next</span>
+            </button>
           </div>
         )}
     </div>

@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { DrinksContext } from '../context/DrinksContext';
 import { MealsContext } from '../context/MealsContext';
+import '../style/SearchBar.css';
 
 function SearchBar() {
   const [searchInput, setSearchInput] = useState('');
@@ -55,57 +56,62 @@ function SearchBar() {
 
   return (
     <div>
+      <div className="text">
+        <label htmlFor="search-input">
+          <input
+            type="text"
+            data-testid="search-input"
+            size="100%"
+            onChange={ (e) => setSearchInput(e.target.value) }
+            className="form-control"
+            value={ searchInput }
+          />
+        </label>
+        <button
+          type="button"
+          data-testid="exec-search-btn"
+          onClick={ handleClick }
+          className="btn btn-outline-dark"
+        >
+          Buscar
 
-      <label htmlFor="search-input">
-        <input
-          type="text"
-          data-testid="search-input"
-          onChange={ (e) => setSearchInput(e.target.value) }
-          value={ searchInput }
-        />
-      </label>
+        </button>
+      </div>
 
-      <label htmlFor="ingredient-search-radio">
-        <input
-          type="radio"
-          data-testid="ingredient-search-radio"
-          name="busca"
-          onChange={ (e) => setFilterRadio(e.target.value) }
-          value="Ingredient"
-        />
-        Ingredient
-      </label>
+      <div className="filtros">
+        <label htmlFor="ingredient-search-radio">
+          <input
+            type="radio"
+            data-testid="ingredient-search-radio"
+            name="busca"
+            onChange={ (e) => setFilterRadio(e.target.value) }
+            value="Ingredient"
+          />
+          Ingredient
+        </label>
 
-      <label htmlFor="name-search-radio">
-        <input
-          type="radio"
-          data-testid="name-search-radio"
-          name="busca"
-          onChange={ (e) => setFilterRadio(e.target.value) }
-          value="Name"
-        />
-        Name
-      </label>
+        <label htmlFor="name-search-radio">
+          <input
+            type="radio"
+            data-testid="name-search-radio"
+            name="busca"
+            onChange={ (e) => setFilterRadio(e.target.value) }
+            value="Name"
+          />
+          Name
+        </label>
 
-      <label htmlFor="first-letter-search-radio">
-        <input
-          type="radio"
-          data-testid="first-letter-search-radio"
-          name="busca"
-          onChange={ (e) => setFilterRadio(e.target.value) }
-          value="First letter"
-        />
-        First letter
-      </label>
-
-      <button
-        type="button"
-        data-testid="exec-search-btn"
-        onClick={ handleClick }
-      >
-        Buscar
-
-      </button>
+        <label htmlFor="first-letter-search-radio">
+          <input
+            type="radio"
+            data-testid="first-letter-search-radio"
+            name="busca"
+            onChange={ (e) => setFilterRadio(e.target.value) }
+            value="First letter"
+          />
+          First letter
+        </label>
+      </div>
     </div>
   );
 }

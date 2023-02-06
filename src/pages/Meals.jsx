@@ -4,6 +4,7 @@ import MealsCard from '../Components/MealsCard';
 import Recipes from '../Components/Recipes';
 import { MealsContext } from '../context/MealsContext';
 import Footer from '../Components/Footer';
+import '../style/MealCard.css';
 
 function Meals() {
   const { dataResults } = useContext(MealsContext);
@@ -18,7 +19,7 @@ function Meals() {
   }, [dataResults]);
 
   return (
-    <div className="meals-div-pai">
+    <div>
       <Header />
       {recipes !== null
         ? recipes.meals.map((receitas, index) => (

@@ -23,27 +23,38 @@ function FavoriteRecipes() {
   return (
     <div>
       <Header />
-      <button
-        onClick={ filterAllButton }
-        type="button"
-        data-testid="filter-by-all-btn"
-      >
-        All
-      </button>
-      <button
-        onClick={ filterMealsButton }
-        type="button"
-        data-testid="filter-by-meal-btn"
-      >
-        Meals
-      </button>
-      <button
-        onClick={ filterDrinkButton }
-        type="button"
-        data-testid="filter-by-drink-btn"
-      >
-        Drinks
-      </button>
+      <div className="buttons-filtro">
+        <div
+          className="btn-group btn-group-sm"
+          role="group"
+          aria-label="Small button group"
+        >
+          <button
+            onClick={ filterAllButton }
+            type="button"
+            data-testid="filter-by-all-btn"
+            className="btn btn-outline-dark"
+          >
+            All
+          </button>
+          <button
+            onClick={ filterMealsButton }
+            type="button"
+            className="btn btn-outline-dark"
+            data-testid="filter-by-meal-btn"
+          >
+            Meals
+          </button>
+          <button
+            onClick={ filterDrinkButton }
+            type="button"
+            className="btn btn-outline-dark"
+            data-testid="filter-by-drink-btn"
+          >
+            Drinks
+          </button>
+        </div>
+      </div>
       {favoriteStorage !== null
       && (
         <div>

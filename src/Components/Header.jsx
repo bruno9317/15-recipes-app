@@ -3,8 +3,11 @@ import { useHistory } from 'react-router-dom';
 import profileIcon from '../images/profileIcon.svg';
 import searchIcon from '../images/searchIcon.svg';
 import SearchBar from './SearchBar';
+import '../style/Header.css';
+// import blackHeartIcon from '../images/blackHeartIcon.svg';
 
 function Header() {
+  const favoritePath = '/favorite-recipes';
   const history = useHistory();
   const { pathname } = history.location;
   const [inputSearch, setInputSearch] = useState(false);
@@ -20,95 +23,98 @@ function Header() {
   return (
     <div>
       { pathname === '/drinks' && (
-        <div>
+        <div className="div-pai-header">
+          <div className="title-favorites">
+            <h1 data-testid="page-title">Drinks</h1>
+          </div>
+          <div className="buttons-S-P">
+            <button
+              type="button"
+              onClick={ handleClickSearch }
+              className="btn btn-outline-dark"
+            >
+              <img
+                src={ searchIcon }
+                alt="imagem de pesquisa"
+                data-testid="search-top-btn"
+              />
+            </button>
+            <button
+              type="button"
+              onClick={ handleClickProfile }
+              className="btn btn-outline-dark"
+            >
+              <img
+                src={ profileIcon }
+                alt="imagem de perfil"
+                data-testid="profile-top-btn"
+              />
+            </button>
+          </div>
           {inputSearch && (
             <SearchBar />
           )}
-          <button
-            type="button"
-            onClick={ handleClickSearch }
-          >
-            <img
-              src={ searchIcon }
-              alt="imagem de pesquisa"
-              data-testid="search-top-btn"
-            />
-          </button>
-          <button
-            type="button"
-            onClick={ handleClickProfile }
-          >
-            <img
-              src={ profileIcon }
-              alt="imagem de perfil"
-              data-testid="profile-top-btn"
-            />
-          </button>
-          <h1 data-testid="page-title">Drinks</h1>
         </div>
       ) }
+
       { pathname === '/meals' && (
-        <div>
+        <div className="div-pai-header">
+          <div className="title-favorites">
+            <h1 data-testid="page-title">Meals</h1>
+          </div>
+          <div className="buttons-S-P">
+            <button
+              type="button"
+              onClick={ handleClickSearch }
+              className="btn btn-outline-dark"
+            >
+              <img
+                src={ searchIcon }
+                alt="imagem de pesquisa"
+                data-testid="search-top-btn"
+              />
+            </button>
+            <button
+              type="button"
+              onClick={ handleClickProfile }
+              className="btn btn-outline-dark"
+            >
+              <img
+                src={ profileIcon }
+                alt="imagem de perfil"
+                data-testid="profile-top-btn"
+              />
+            </button>
+          </div>
           {inputSearch && (
             <SearchBar />
           )}
-          <button
-            type="button"
-            onClick={ handleClickSearch }
-          >
-            <img
-              src={ searchIcon }
-              alt="imagem de pesquisa"
-              data-testid="search-top-btn"
-            />
-          </button>
-          <button
-            type="button"
-            onClick={ handleClickProfile }
-          >
-            <img
-              src={ profileIcon }
-              alt="imagem de perfil"
-              data-testid="profile-top-btn"
-            />
-          </button>
-          <h1 data-testid="page-title">Meals</h1>
         </div>
       ) }
+
       { pathname === '/profile' && (
-        <div>
-          <button
-            type="button"
-            onClick={ handleClickProfile }
-          >
-            <img
-              src={ profileIcon }
-              alt="imagem de perfil"
-              data-testid="profile-top-btn"
-            />
-          </button>
+        <div className="profile-page">
           <h1 data-testid="page-title">Profile</h1>
+          <button
+            type="button"
+            onClick={ handleClickProfile }
+            className="btn btn-outline-dark"
+          >
+            <img
+              src={ profileIcon }
+              alt="imagem de perfil"
+              data-testid="profile-top-btn"
+            />
+          </button>
         </div>
       ) }
+
       { pathname === '/done-recipes' && (
-        <div>
-          <button
-            type="button"
-            onClick={ handleClickProfile }
-          >
-            <img
-              src={ profileIcon }
-              alt="imagem de perfil"
-              data-testid="profile-top-btn"
-            />
-          </button>
+        <div className="profile-page">
           <h1 data-testid="page-title">Done Recipes</h1>
-        </div>
-      ) }
-      { pathname === '/favorite-recipes' && (
-        <div>
           <button
             type="button"
+            className="btn btn-outline-dark"
             onClick={ handleClickProfile }
           >
             <img
@@ -117,15 +123,31 @@ function Header() {
               data-testid="profile-top-btn"
             />
           </button>
-          <h1 data-testid="page-title">Favorite Recipes</h1>
         </div>
       ) }
-      <button
+
+      { pathname === favoritePath && (
+        <div className="profile-page">
+          <h1 data-testid="page-title">Favorite Recipes</h1>
+          <button
+            type="button"
+            className="btn btn-outline-dark"
+            onClick={ handleClickProfile }
+          >
+            <img
+              src={ profileIcon }
+              alt="imagem de perfil"
+              data-testid="profile-top-btn"
+            />
+          </button>
+        </div>
+      ) }
+      {/* <button
         type="button"
-        onClick={ () => history.push('/favorite-recipes') }
+        onClick={ () => history.push(favoritePath) }
       >
         Favorites
-      </button>
+      </button> */}
     </div>
   );
 }

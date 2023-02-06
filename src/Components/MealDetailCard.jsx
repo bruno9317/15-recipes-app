@@ -29,7 +29,7 @@ function MealDetailCard({ receita }) {
         `${receita.strIngredient19} / ${receita.strMeasure19}`,
         `${receita.strIngredient20} / ${receita.strMeasure20}`,
       ];
-      ing = ing.filter((p) => p !== ' /  ');
+      ing = ing.filter((p) => p !== ' /  ' && p !== ' / ');
       setIngridients(ing);
     }
   }, []);
@@ -41,9 +41,10 @@ function MealDetailCard({ receita }) {
           <img
             src={ infoReceita.strMealThumb }
             alt={ infoReceita.strMeal }
-            width="300"
-            height="400"
+            // width="300"
+            // height="400"
             data-testid="recipe-photo"
+            className="card-img-top"
           />
           <h1 data-testid="recipe-category">{ infoReceita.strCategory }</h1>
           <ul>
@@ -57,12 +58,12 @@ function MealDetailCard({ receita }) {
           </ul>
           <p data-testid="instructions">{ infoReceita.strInstructions }</p>
           <iframe
-            width="560"
-            height="315"
+            width="100%"
+            height="205"
             src={ infoReceita.strYoutube.replace('watch?v=', 'embed/') }
             title="YouTube video player"
             data-testid="video"
-            frameBorder="0"
+            // frameBorder="0"
             allow="accelerometer;
               autoplay;
               clipboard-write;

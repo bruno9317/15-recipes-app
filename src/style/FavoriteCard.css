@@ -1,0 +1,20 @@
+@media screen and ( max-width : 360px ) {
+
+  .buttons-filtro {
+    align-items: center;
+    display: flex;
+    flex-flow: wrap;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 4px;
+  }
+
+  .recipe-link {
+    color: black;
+    text-decoration: none;
+  }
+
+  .div-pai-favorite {
+    margin-top: 8px;
+  }
+}

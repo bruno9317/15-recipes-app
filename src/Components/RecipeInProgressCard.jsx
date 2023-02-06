@@ -3,6 +3,7 @@ import { useHistory } from 'react-router-dom';
 import clipboardCopy from 'clipboard-copy';
 import PropTypes from 'prop-types';
 import '../index.css';
+import '../style/RecipeInProgress.css';
 import whiteHeartIcon from '../images/whiteHeartIcon.svg';
 import blackHeartIcon from '../images/blackHeartIcon.svg';
 import shareIcon from '../images/shareIcon.svg';
@@ -95,28 +96,29 @@ function RecipeInProgressCard({ info }) {
                   src={ info.strMealThumb }
                   alt={ info.strMeal }
                   data-testid="recipe-photo"
-                  height="200"
+                  className="card-img-top"
                 />
                 <h1 data-testid="recipe-category">{ info.strCategory }</h1>
                 <p data-testid="instructions">{info.strInstructions}</p>
-                <button
-                  type="button"
-                  data-testid="share-btn"
-                  onClick={ handleShareClick }
-                >
-                  <img src={ shareIcon } alt="share icon" />
-                </button>
-                <button
-                  type="button"
-                  //   data-testid="favorite-btn"
-                  onClick={ handleFavoriteClick }
-                >
-                  <img
-                    src={ verifica ? blackHeartIcon : whiteHeartIcon }
-                    alt="favorita button"
-                    data-testid="favorite-btn"
-                  />
-                </button>
+                <div className="buttons-share-fav-inprogress">
+                  <button
+                    type="button"
+                    data-testid="share-btn"
+                    onClick={ handleShareClick }
+                  >
+                    <img src={ shareIcon } alt="share icon" />
+                  </button>
+                  <button
+                    type="button"
+                    onClick={ handleFavoriteClick }
+                  >
+                    <img
+                      src={ verifica ? blackHeartIcon : whiteHeartIcon }
+                      alt="favorita button"
+                      data-testid="favorite-btn"
+                    />
+                  </button>
+                </div>
                 <button
                   type="button"
                   data-testid="finish-recipe-btn"
@@ -127,28 +129,31 @@ function RecipeInProgressCard({ info }) {
                   Finish
                 </button>
                 <h2
-                  className={ shareMessageState ? undefined : 'esconde' }
+                  className={ shareMessageState ? undefined : 'esconde2' }
                 >
                   Link copied!
                 </h2>
-                {ing !== null
+                <div className="ing2">
+                  {ing !== null
                 && (
                   ing.map((p, index) => (
                     <label
                       htmlFor={ `checkbox1${index}` }
                       key={ index }
                       data-testid={ `${index}-ingredient-step` }
-                      className={ p.split('$$$')[1] === 'checked' ? 'risca' : undefined }
+                      className={ p.split('$$$')[1] === 'checked' ? 'risca ' : undefined }
                     >
                       <input
                         type="checkbox"
                         id={ `checkbox1${index}` }
                         onClick={ handleCheckClick }
                         defaultChecked={ p.split('$$$')[1] === 'checked' }
+                        // className="ing2"
                       />
                       { p.split('$$$')[0] }
                     </label>))
                 )}
+                </div>
               </div>)
             : (
               <div>
@@ -157,7 +162,8 @@ function RecipeInProgressCard({ info }) {
                   src={ info.strDrinkThumb }
                   alt={ info.strDrink }
                   data-testid="recipe-photo"
-                  height="200"
+                  // height="200"
+                  className="card-img-top"
                 />
                 <h1 data-testid="recipe-category">{ info.strAlcoholic }</h1>
                 <p data-testid="instructions">{info.strInstructions}</p>
@@ -189,11 +195,12 @@ function RecipeInProgressCard({ info }) {
                   Finish
                 </button>
                 <h2
-                  className={ shareMessageState ? undefined : 'esconde' }
+                  className={ shareMessageState ? undefined : 'esconde2' }
                 >
                   Link copied!
                 </h2>
-                {ing !== null
+                <div className="ing2">
+                  {ing !== null
                 && (
                   ing.map((p, index) => (
                     <label
@@ -211,6 +218,7 @@ function RecipeInProgressCard({ info }) {
                       { p.split('$$$')[0] }
                     </label>))
                 )}
+                </div>
               </div>) }
         </div>)}
     </div>

@@ -1,0 +1,23 @@
+@media screen and ( max-width : 360px ) {
+
+  .div-pai-header {
+    background-color: #fed766;
+    margin-bottom: 3px;
+  }
+
+  .buttons-S-P {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .title-favorites {
+    display: flex;
+    justify-content: center;
+  }
+
+  .profile-page {
+    background-color: #fed766;
+    display: flex;
+    justify-content: space-between;
+  }
+}

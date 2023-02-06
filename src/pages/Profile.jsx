@@ -2,6 +2,7 @@ import React from 'react';
 import { useHistory } from 'react-router-dom';
 import Header from '../Components/Header';
 import Footer from '../Components/Footer';
+import '../style/Profile.css';
 
 function Profile() {
   const history = useHistory();
@@ -24,13 +25,14 @@ function Profile() {
   return (
     <div>
       <Header />
-      <div>Profile</div>
-
-      <p data-testid="profile-email">{ userEmail.email}</p>
+      <div className="email-div">
+        <h1 data-testid="profile-email">{ userEmail.email}</h1>
+      </div>
 
       <button
         type="button"
         data-testid="profile-done-btn"
+        className="btn btn-dark"
         onClick={ redirectDoneRecipes }
       >
         Done Recipes
@@ -39,6 +41,7 @@ function Profile() {
       <button
         type="button"
         data-testid="profile-favorite-btn"
+        className="btn btn-dark"
         onClick={ redirectFavorite }
       >
         Favorite Recipes
@@ -47,6 +50,7 @@ function Profile() {
       <button
         type="button"
         data-testid="profile-logout-btn"
+        className="btn btn-dark"
         onClick={ redirectLogin }
       >
         Logout

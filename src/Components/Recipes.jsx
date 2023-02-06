@@ -3,6 +3,8 @@ import { useHistory } from 'react-router-dom';
 import { RecipesContext } from '../context/RecipesContext';
 import DrinksCard from './DrinksCard';
 import MealsCard from './MealsCard';
+import '../style/MealCard.css';
+// import '../style/DrinksCard.css';
 
 function Recipes() {
   const history = useHistory();
@@ -40,52 +42,71 @@ function Recipes() {
           <div>
             {pathname === '/meals'
               ? (
-                <div>
-                  {buttonsMeals.map((category) => (
-                    <button
-                      key={ category }
-                      data-testid={ `${category}-category-filter` }
-                      name={ category }
-                      onClick={ handleClickFilterMeals }
-                    >
-                      { category }
-                    </button>
-                  ))}
-                  {recipes1.meals.map((receitas, index) => (
-                    <MealsCard
-                      receitas={ receitas }
-                      index={ index }
-                      key={ index }
-                    />
-                  )).slice(0, number12)}
+                <div className="buttons-filtro">
+                  <div
+                    className="btn-group btn-group-sm"
+                    role="group"
+                    aria-label="Small button group"
+                  >
+                    {buttonsMeals.map((category) => (
+                      <button
+                        key={ category }
+                        data-testid={ `${category}-category-filter` }
+                        name={ category }
+                        onClick={ handleClickFilterMeals }
+                        className="btn btn-outline-dark"
+                      >
+                        { category }
+                      </button>
+                    ))}
+                  </div>
+                  <div className="meals-div-pai">
+                    {recipes1.meals.map((receitas, index) => (
+                      <MealsCard
+                        receitas={ receitas }
+                        index={ index }
+                        key={ index }
+                      />
+                    )).slice(0, number12)}
+                  </div>
                 </div>)
               : (
-                <div>
-                  <button
-                    type="button"
-                    data-testid="Other/Unknown-category-filter"
-                    name="Other/Unknown"
-                    onClick={ handleClickFilterDrinks }
+                <div className="buttons-filtro">
+                  <div
+                    className="btn-group btn-group-sm"
+                    role="group"
+                    aria-label="Small button group"
                   >
-                    Other / Unknown
-                  </button>
-                  {buttonsDrinks.map((category) => (
                     <button
-                      key={ category }
-                      data-testid={ `${category}-category-filter` }
-                      name={ category }
+                      type="button"
+                      data-testid="Other/Unknown-category-filter"
+                      name="Other/Unknown"
                       onClick={ handleClickFilterDrinks }
+                      className="btn btn-outline-dark"
                     >
-                      { category }
+                      Other / Unknown
                     </button>
-                  ))}
-                  {recipes2.drinks.map((receitas, index) => (
-                    <DrinksCard
-                      receitas={ receitas }
-                      index={ index }
-                      key={ index }
-                    />
-                  )).slice(0, number12)}
+                    {buttonsDrinks.map((category) => (
+                      <button
+                        key={ category }
+                        data-testid={ `${category}-category-filter` }
+                        name={ category }
+                        onClick={ handleClickFilterDrinks }
+                        className="btn btn-outline-dark"
+                      >
+                        { category }
+                      </button>
+                    ))}
+                  </div>
+                  <div className="meals-div-pai">
+                    {recipes2.drinks.map((receitas, index) => (
+                      <DrinksCard
+                        receitas={ receitas }
+                        index={ index }
+                        key={ index }
+                      />
+                    )).slice(0, number12)}
+                  </div>
                 </div>)}
           </div>)}
     </div>

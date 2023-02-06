@@ -1,0 +1,10 @@
+@media screen and ( max-width : 360px ) {
+
+  .email-div {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
+    margin-top: 20px;
+  }
+}

@@ -34,8 +34,9 @@ function DrinkDetailCard(info) {
           <img
             src={ infoReceita.strDrinkThumb }
             alt={ infoReceita.strDrink }
-            width="300"
-            height="400"
+            // width="300"
+            // height="400"
+            className="card-img-top"
             data-testid="recipe-photo"
           />
           <h1 data-testid="recipe-category">{ infoReceita.strAlcoholic }</h1>

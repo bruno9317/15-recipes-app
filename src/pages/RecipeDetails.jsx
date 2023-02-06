@@ -8,6 +8,7 @@ import shareIcon from '../images/shareIcon.svg';
 import whiteHeartIcon from '../images/whiteHeartIcon.svg';
 import blackHeartIcon from '../images/blackHeartIcon.svg';
 import '../index.css';
+import '../style/recipeDetail.css';
 import useLocalStorage from '../hooks/useLocalStorage';
 
 function RecipeDetails() {
@@ -143,25 +144,29 @@ function RecipeDetails() {
                 <DrinkDetailCard receita={ drinkInfo } />)
               : <MealDetailCard receita={ mealInfo } />}
           </div>)}
-      <button
-        type="button"
-        data-testid="share-btn"
-        onClick={ handleShareClick }
-      >
-        <img src={ shareIcon } alt="share icon" />
-      </button>
-      <h2 className={ shareMessageState ? undefined : 'esconde' }>Link copied!</h2>
-      <button
-        type="button"
-        // data-testid="favoriaate-btn"
-        onClick={ handleFavoriteClick }
-      >
-        <img
-          src={ verifica ? blackHeartIcon : whiteHeartIcon }
-          alt="favorita button"
-          data-testid="favorite-btn"
-        />
-      </button>
+      <div className="button-share-fav-detail">
+        <button
+          type="button"
+          data-testid="share-btn"
+          onClick={ handleShareClick }
+          className="btn btn-outline-dark"
+        >
+          <img src={ shareIcon } alt="share icon" />
+        </button>
+        <h2 className={ shareMessageState ? undefined : 'esconde2' }>Link copied!</h2>
+        <button
+          type="button"
+          // data-testid="favoriaate-btn"
+          onClick={ handleFavoriteClick }
+          className="btn btn-outline-dark"
+        >
+          <img
+            src={ verifica ? blackHeartIcon : whiteHeartIcon }
+            alt="favorita button"
+            data-testid="favorite-btn"
+          />
+        </button>
+      </div>
       <CarouselCard info={ pathname } />
       {doneRecipes.length > 0
         && (
@@ -170,7 +175,7 @@ function RecipeDetails() {
               <button
                 type="button"
                 data-testid="start-recipe-btn"
-                className="start-recipe-btn"
+                className="start-recipe-btn btn btn-warning"
                 onClick={ handleClick }
               >
                 {buttonName}

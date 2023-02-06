@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import clipboardCopy from 'clipboard-copy';
 import PropTypes from 'prop-types';
 import '../index.css';
+import '../style/FavoriteCard.css';
 import blackHeartIcon from '../images/blackHeartIcon.svg';
 import shareIcon from '../images/shareIcon.svg';
 
@@ -28,18 +29,11 @@ function FavoritesCard({ info1, index }) {
     window.location.reload();
   };
   return (
-    <div>
+    <div className="div-pai-favorite">
       {info !== null
       && (
-        <div>
-          <h1
-            data-testid={ `${index}-horizontal-top-text` }
-          >
-            { info.type === 'meal'
-              ? `${info.nationality} - ${info.category}`
-              : info.alcoholicOrNot }
-          </h1>
-          <Link to={ `/${info.type}s/${info.id}` }>
+        <div className="card">
+          <Link to={ `/${info.type}s/${info.id}` } className="recipe-link">
             <h2 data-testid={ `${index}-horizontal-name` }>{info.name}</h2>
             <img
               width={ 300 }
@@ -48,29 +42,38 @@ function FavoritesCard({ info1, index }) {
               alt={ info.name }
               data-testid={ `${index}-horizontal-image` }
             />
+            <h1
+              data-testid={ `${index}-horizontal-top-text` }
+            >
+              { info.type === 'meal'
+                ? `${info.nationality} - ${info.category}`
+                : info.alcoholicOrNot }
+            </h1>
           </Link>
-          <button
-            type="button"
-            onClick={ handleFavoriteClick }
-          >
-            <img
-              src={ blackHeartIcon }
-              alt="favorita button"
-              data-testid={ `${index}-horizontal-favorite-btn` }
-            />
-          </button>
-          <button
-            type="button"
-            onClick={ handleShareClick }
-          >
-            <img
-              src={ shareIcon }
-              alt="share icon"
-              data-testid={ `${index}-horizontal-share-btn` }
-            />
-          </button>
+          <div>
+            <button
+              type="button"
+              onClick={ handleFavoriteClick }
+            >
+              <img
+                src={ blackHeartIcon }
+                alt="favorita button"
+                data-testid={ `${index}-horizontal-favorite-btn` }
+              />
+            </button>
+            <button
+              type="button"
+              onClick={ handleShareClick }
+            >
+              <img
+                src={ shareIcon }
+                alt="share icon"
+                data-testid={ `${index}-horizontal-share-btn` }
+              />
+            </button>
+          </div>
           <h2
-            className={ shareMessageState ? undefined : 'esconde' }
+            className={ shareMessageState ? undefined : 'esconde2' }
           >
             Link copied!
           </h2>

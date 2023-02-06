@@ -1,3 +1,18 @@
-.esconde {
-  display: none;
+@media screen and ( max-width : 360px ) {
+
+  .card-group2 {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+  }
+
+  .div-pai {
+    background-color: white;
+    margin-bottom: 42px;
+    width: 100%;
+  }
+
+  .link-div {
+    width: 35%;
+  }
 }
