@@ -11,7 +11,7 @@ import RecipesProvider from './context/RecipesContext';
 ReactDOM
   .createRoot(document.getElementById('root'))
   .render(
-    <BrowserRouter>
+    <BrowserRouter basename={ process.env.PUBLIC_URL }>
       <MealsProvider>
         <DrinksProvider>
           <RecipesProvider>
